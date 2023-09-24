@@ -29,7 +29,7 @@ public class individual {
         System.out.println("\n Information:");
         for (mountain mountain : gora) {
 
-            System.out.println(" " + mountain.name + "\t " + mountain.square + "м"+"\t" + mountain.place  );
+            System.out.println(" " + mountain.name + "\t "+ mountain.square +"м"+"\t" + mountain.place);
 
         }
         int nommax=0; // номер элемента для страны с максимальной
@@ -79,19 +79,21 @@ public class individual {
             if (name.equalsIgnoreCase(gora[i].name))
                 nom=i;
         if (nom!= -1) {
-            System.out.println("Such a mountain is on the list. It is: " + gora[nom].name+" "+gora[nom].square+"м"+gora[nom].place);
-            System.out.println("Enter field that you want to change");
-            String indexxxx=sc.nextLine();
-            System.out.println("Enter tha new value of a field");
-            String newvalue=sc.nextLine();
-            if(indexxxx=="place") {
+            System.out.println(gora[nom].name+"\t"+ gora[nom].square+"\t"+gora[nom].place);
+            System.out.println("Виберіть що редагувати:  |Name| |High| |PLace|");
+            String k = sc.nextLine();
+            System.out.print("Введіть потрібні дані: ");
+            switch (k) {
+                case "Name":
+                    gora[nom].name = sc.nextLine(); break;
+                case "High":
+                    gora[nom].square = Double.parseDouble(sc.nextLine()); break;
+                case "Place":
+                    gora[nom].place = sc.nextLine(); break;
+                default:
 
             }
-                
-
-
-            
-
+            System.out.println(gora[nom].name+"\t"+gora[nom].square +"\t"+ gora[nom].place);
         }else System.out.println("Such a mountain is not on the list");
     }
 }
